@@ -14,3 +14,6 @@ AML/obj/Debug/*
 AML/bin/Debug/x86/Microsoft.VC90.CRT/README_ENU.txt
 .vs/AML/v15/Server/sqlite3/storage.ide-shm
 .vs/AML/v15/.suo
+*.ide
+.vs/AML/v15/.suo
+*.ide-wal

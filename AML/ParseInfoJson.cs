@@ -19,8 +19,7 @@ namespace AML
         public void fillDB()
         {
             string[] json_files = new string[] { "1.json", "2.json" };
-            string str1 = "{\"nume\":\"involvesWatchonly\"}";
-
+            string str1 = "{\"Date Generale\":[{\"nume\":\"TERMENE JUST SRL\",\"cui\":\"33034700\"}]}";
             string str2 = "";
 
             string[] json_files_mem = new string[] { str1, str2 };
@@ -58,7 +57,6 @@ namespace AML
 
                 // Read all info from json
                 RootJsonObject rootObj = null;
-
                 bool parsed = parserJson.LoadJson(parserJson.JsonString, ref rootObj);
                 if (!parsed)
                 {
@@ -76,13 +74,13 @@ namespace AML
            
         }
 
-        public void SaveToDB(RootJsonObject rootobj)
+        public void SaveToDB(RootJsonObject root)
         {
-            //foreach (var item in rootobj.da)
+            foreach (var item in root.GeneralItems)
             {
                 Company company = new Company();
-                company.Name = rootobj.Name;
-                //company.CUI = item["cui"];
+                company.Name = item["nume"];
+                company.CUI = item["cui"];
 
                 mDb.AddCompany(company);
             }

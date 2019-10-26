@@ -35,7 +35,6 @@ namespace AML
 
         public string JsonString { set; get; }
 
-
         public bool LoadJson(string jsonString, ref RootJsonObject jsonObj)
         {
             ReadJson();
