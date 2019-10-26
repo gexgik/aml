@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace AML
 {
+    [JsonObject(Title = "Date Generale")]
+
     public class RootJsonObject
     {
-        [JsonProperty("transactions")]
-        public IList<Dictionary<string, dynamic>> TransactionsItems { get; set; }
+        [JsonProperty("nume")]
+        public string Name { get; set; }
 
-        [JsonProperty("removed")]
-        public string[] Removed { set; get; }
 
-        [JsonProperty("lastblock")]
-        public string LastBlock { set; get; }
+
     }
 }

@@ -19,7 +19,8 @@ namespace AML
         public void fillDB()
         {
             string[] json_files = new string[] { "1.json", "2.json" };
-            string str1 = "";
+            string str1 = "{\"nume\":\"involvesWatchonly\"}";
+
             string str2 = "";
 
             string[] json_files_mem = new string[] { str1, str2 };
@@ -52,45 +53,37 @@ namespace AML
 
             for (int i = 0; i < json_files.Length; i++)
             {
-                string path = currentDir + "..\\..\\"+ json_files[i];
-
+                string path = "D:\\aml\\aml\\"+ json_files[i];
                 ParserJson parserJson = new ParserJson(path);
 
                 // Read all info from json
                 RootJsonObject rootObj = null;
 
-                jsonParsed = parserJson.LoadJson(parserJson.JsonString, ref rootObj);
-                if (!jsonParsed)
+                bool parsed = parserJson.LoadJson(parserJson.JsonString, ref rootObj);
+                if (!parsed)
                 {
                     Console.WriteLine("Read transactions from memory");
-                    jsonParsed = parserJson.LoadJson(json_files_mem[i], ref rootObj);
+                    parsed = parserJson.LoadJson(json_files_mem[i], ref rootObj);
                 }
 
                 // Store all data in a database
-                if (rootObj != null && jsonParsed)
+                if (rootObj != null && parsed)
                 {
-                    //SaveToDB(rootObj);
+                    SaveToDB(rootObj);
                     count++;
                 }
             }
-
-            if (!jsonParsed || (jsonParsed && count != nr_json_files))
-            {
-                Console.WriteLine("Input files were not parsed");
-                System.Environment.Exit(1);
-            }
+           
         }
 
         public void SaveToDB(RootJsonObject rootobj)
         {
-            foreach (var item in rootobj.TransactionsItems)
+            //foreach (var item in rootobj.da)
             {
-                Shareholder shareholder = new Shareholder();
-                //shareholder.Name = item["name"];
-
                 Company company = new Company();
+                company.Name = rootobj.Name;
+                //company.CUI = item["cui"];
 
-                mDb.AddShareholder(shareholder);
                 mDb.AddCompany(company);
             }
         }
