@@ -17,9 +17,9 @@ namespace AML
         public int Id { get; set; }
         public string Name { get; set; }
         public string CUI { get; set; }
-        public Nullable<decimal> Sales { get; set; }
-        public Nullable<decimal> Profit { get; set; }
         public string Shareholders { get; set; }
         public string Percentages { get; set; }
+        public Nullable<decimal> NetTurnover { get; set; }
+        public Nullable<decimal> Code { get; set; }
     }
 }

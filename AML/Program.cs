@@ -10,8 +10,27 @@ namespace AML
     {        
         static void Main(string[] args)
         {
-            ParseInfoJson parser = new ParseInfoJson();
+            ParseInfoJson parser  = new ParseInfoJson();
             parser.fillDB();
+
+            string transactionFrom = "A";
+            string transactionTo = "B";
+
+            string UBOFromName = GetUBO(transactionFrom);
+            string UBOToName = GetUBO(transactionTo);
+
+            ValidateUBO(UBOFromName);
+            ValidateUBO(UBOToName);
+
+        }
+
+        private static void ValidateUBO(string uBOToName)
+        {
+        }
+
+        private static string GetUBO(string transactionFrom)
+        {
+            return "";
         }
     }
 }

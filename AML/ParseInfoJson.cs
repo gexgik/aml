@@ -24,10 +24,7 @@ namespace AML
 
             string[] json_files_mem = new string[] { str1, str2 };
 
-
-            int nr_json_files = 2;
             int count = 0;
-            bool jsonParsed = false;
 
             string currentDir = Directory.GetCurrentDirectory();
             if (string.IsNullOrEmpty(currentDir))
@@ -52,7 +49,7 @@ namespace AML
 
             for (int i = 0; i < json_files.Length; i++)
             {
-                string path = "D:\\aml\\aml\\"+ json_files[i];
+                string path = "D:\\aml\\aml\\AML\\"+ json_files[i];
                 ParserJson parserJson = new ParserJson(path);
 
                 // Read all info from json
@@ -60,9 +57,10 @@ namespace AML
                 bool parsed = parserJson.LoadJson(parserJson.JsonString, ref rootObj);
                 if (!parsed)
                 {
-                    Console.WriteLine("Read transactions from memory");
+                    Console.WriteLine("Read from memory");
                     parsed = parserJson.LoadJson(json_files_mem[i], ref rootObj);
                 }
+
                 // Store all data in a database
                 if (rootObj != null && parsed)
                 {
@@ -80,14 +78,16 @@ namespace AML
                 {
                     Name = "A",
                     CUI = "A",
-                    Sales = 99999,
-                    Profit = 111000,
+                    Code = 99999,
+                    NetTurnover = 111000,
                     Shareholders = "A,B,C,D",
                     Percentages = "10,20,40,40"
                 };
                 string name = Convert.ToString(item["nume"]);
                 company.Name = name;
                 company.CUI = Convert.ToString(item["cui"]);
+                //company.CUI = Convert.ToString(item["cui"]);
+
 
                 mDb.AddCompany(company);
             }

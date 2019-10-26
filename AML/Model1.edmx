@@ -10,10 +10,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="50" />
-          <Property Name="CUI" Type="nchar" MaxLength="20" />
-          <Property Name="Sales" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Profit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUI" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="NetTurnover" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Code" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Shareholders" Type="nvarchar(max)" />
           <Property Name="Percentages" Type="nvarchar(max)" />
         </EntityType>
@@ -44,12 +44,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="CUI" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Sales" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Profit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CUI" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Shareholders" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Percentages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetTurnover" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Code" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Shareholder">
           <Key>
@@ -70,11 +70,11 @@
     <EntitySetMapping Name="Company">
       <EntityTypeMapping TypeName="IsTypeOf(AMLModel.Company)">
         <MappingFragment StoreEntitySet="Company">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="NetTurnover" ColumnName="NetTurnover" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="CUI" ColumnName="CUI" />
-          <ScalarProperty Name="Sales" ColumnName="Sales" />
-          <ScalarProperty Name="Profit" ColumnName="Profit" />
           <ScalarProperty Name="Shareholders" ColumnName="Shareholders" />
           <ScalarProperty Name="Percentages" ColumnName="Percentages" />
         </MappingFragment>
