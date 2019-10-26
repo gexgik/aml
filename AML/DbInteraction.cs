@@ -12,7 +12,7 @@ namespace AML
         {
             using (AMLEntities db = new AMLEntities())
             {
-                db.Shareholders.Add(shareholder);
+                db.Shareholder.Add(shareholder);
                 db.SaveChanges();
                 Console.WriteLine("New shareholder added:" + shareholder.FirstName);
             }
@@ -22,7 +22,7 @@ namespace AML
         {
             using (AMLEntities db = new AMLEntities())
             {
-                db.Companies.Add(company);
+                db.Company.Add(company);
                 db.SaveChanges();
                 Console.WriteLine("New company added:" + company.Name);
             }
@@ -32,7 +32,7 @@ namespace AML
         {
             using (AMLEntities db = new AMLEntities())
             {
-                var company_list = db.Companies.ToList();
+                var company_list = db.Company.ToList();
                 foreach (var company in company_list)
                 {
                     Console.WriteLine(company.Name + " " + company.CUI);
@@ -44,7 +44,7 @@ namespace AML
         {
             using (AMLEntities db = new AMLEntities())
             {
-                var company = (from s in db.Companies
+                var company = (from s in db.Company
                                where s.Name == fname
                                select s).FirstOrDefault<Company>();
                 return company;

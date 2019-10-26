@@ -4,34 +4,34 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AMLModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="AMLModelStoreContainer">
-    <EntitySet Name="Company" EntityType="AMLModel.Store.Company" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Shareholder" EntityType="AMLModel.Store.Shareholder" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="Company">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="CUI" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="Sales" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="Profit" Type="decimal" Nullable="true" Precision="18" Scale="0" />
-    <Property Name="Shareholders" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Percentages" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Shareholder">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="FirstName" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="LastName" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="CNP" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="Age" Type="smallint" Nullable="true" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="AMLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="CUI" Type="nchar" MaxLength="20" />
+          <Property Name="Sales" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Shareholders" Type="nvarchar(max)" />
+          <Property Name="Percentages" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Shareholder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="10" />
+          <Property Name="LastName" Type="nchar" MaxLength="10" />
+          <Property Name="CNP" Type="nchar" MaxLength="10" />
+          <Property Name="Age" Type="smallint" />
+        </EntityType>
+        <EntityContainer Name="AMLModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shareholder" EntityType="Self.Shareholder" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AMLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -44,8 +44,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CUI" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CUI" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Sales" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Profit" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Shareholders" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

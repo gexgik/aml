@@ -17,3 +17,4 @@ AML/bin/Debug/x86/Microsoft.VC90.CRT/README_ENU.txt
 *.ide
 .vs/AML/v15/.suo
 *.ide-wal
+AML/bin/Debug/AML.exe.config

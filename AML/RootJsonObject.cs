@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace AML
 {
-    [JsonObject(Title = "Date Generale")]
 
     public class RootJsonObject
     {
-        [JsonProperty("nume")]
-        public string Name { get; set; }
+        [JsonProperty("Date Generale")]
 
-
+        public IList<Dictionary<string, dynamic>> GeneralItems { get; set; }
+        //[JsonProperty("Asociaţi şi Administratori ce pot fi cu sau fără procentaj")]
+        //public string[] Asoc { set; get; }
 
     }
 }

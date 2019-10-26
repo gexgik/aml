@@ -25,7 +25,7 @@ namespace AML
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<Shareholder> Shareholders { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<Shareholder> Shareholder { get; set; }
     }
 }

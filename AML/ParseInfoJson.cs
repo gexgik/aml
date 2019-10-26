@@ -63,7 +63,6 @@ namespace AML
                     Console.WriteLine("Read transactions from memory");
                     parsed = parserJson.LoadJson(json_files_mem[i], ref rootObj);
                 }
-
                 // Store all data in a database
                 if (rootObj != null && parsed)
                 {
@@ -71,19 +70,31 @@ namespace AML
                     count++;
                 }
             }
-           
         }
 
         public void SaveToDB(RootJsonObject root)
         {
             foreach (var item in root.GeneralItems)
             {
-                Company company = new Company();
-                company.Name = item["nume"];
-                company.CUI = item["cui"];
+                Company company = new Company
+                {
+                    Name = "A",
+                    CUI = "A",
+                    Sales = 99999,
+                    Profit = 111000,
+                    Shareholders = "A,B,C,D",
+                    Percentages = "10,20,40,40"
+                };
+                string name = Convert.ToString(item["nume"]);
+                company.Name = name;
+                company.CUI = Convert.ToString(item["cui"]);
 
                 mDb.AddCompany(company);
             }
+
+            
+            mDb.GetAllCompanies();
+
         }
     }
 }
