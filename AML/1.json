@@ -1,1 +1,3 @@
-﻿{"Date Generale":[{"nume":"TERMENE JUST SRL","cui":"33034700"}], "Asociaţi şi Administratori":[{"nume_adm":"CARMEN ELIZA"}]}
+{"Date Generale":[{"nume":"TERMENE JUST SRL","cui":"33034700"}], "Asociaţi şi Administratori":[{"nume":"CARMEN ELIZA", "tip":"pf", "administrator":"true","id":"1651234881234","procente":"100","tara":"Iran"}]}
+{"Date Generale":[{"nume":"MARFA BUNA SA","cui":"54324700"}], "Asociaţi şi Administratori":[{"nume":"MARIAN IONESCU", "tip":"pf", "administrator":"true","id":"2451234881234","procente":"60","tara":"Bulgaria"},{"nume":"DANIEL ION", "tip":"pf", "administrator":"false","id":"1888234881234",,"procente":"40","tara":"UK"}]}
+{"Date Generale":[{"nume":"APA PLATA SA","cui":"11224700"}], "Asociaţi şi Administratori":[{"nume":"TERMENE JUST SRL", "tip":"pj", "administrator":"true","id":"33034700","procente":"60"},{"nume":"ADRIAN POPESCU", "tip":"pf", "administrator":"true","id":"1488234881234",,"procente":"40","tara":"Franta"}]}
